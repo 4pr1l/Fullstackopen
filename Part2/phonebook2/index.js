@@ -8,7 +8,7 @@ app.use(morgan('tiny'))
 const cors = require('cors')
 
 app.use(cors({
-    origin: 'http://localhost/5173',
+    origin: 'http://localhost:5173',
     optionsSuccessStatus: 200
 }))
 const requestLogger = (request, response, next) => {
@@ -99,7 +99,7 @@ response.json(person)
 
 
 app.use(unknownEndpoint)
-const PORT = 3001
+const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
   })
